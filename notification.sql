@@ -5,7 +5,8 @@ USE belajar_mysql_notification;
 SHOW TABLES;
 
 # User
-
+# membuat table User
+    
 CREATE TABLE user
 (
     id   VARCHAR(100) NOT NULL,
@@ -15,6 +16,8 @@ CREATE TABLE user
 
 SHOW TABLES;
 
+#Inser user eko dan khannedy
+    
 INSERT INTO user(id, name)
 VALUES ('eko', 'Eko Kurniawan');
 INSERT INTO user(id, name)
@@ -53,11 +56,12 @@ VALUES ('Contoh Pembayaran', 'Detail Pembayaran', CURRENT_TIMESTAMP(), 'khannedy
 SELECT *
 FROM notification;
 
+# Tampilkan NOtifikasi Khusus eko dan Notifikasi Global
 SELECT *
 FROM notification
 WHERE (user_id = 'eko' OR user_id IS NULL)
 ORDER BY create_at DESC;
-
+# Tampilkan NOtifikasi Khusus khannedy dan Notifikasi Global
 SELECT *
 FROM notification
 WHERE (user_id = 'khannedy' OR user_id IS NULL)
@@ -96,6 +100,7 @@ VALUES ('PROMO', 'Promo');
 SELECT *
 FROM category;
 
+# menambahkan value category pada column notification.category_id
 UPDATE notification
 SET category_id = 'INFO'
 WHERE id = 1;
